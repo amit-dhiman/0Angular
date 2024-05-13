@@ -1,4 +1,13 @@
-<h1>Welcome to Sahosoft</h1>
-<h1>how are you</h1>
+<div>
+    <!-- <h1>Welcome to Sahosoft</h1> -->
+    <h1>Parent aap.commponent.html</h1>
+    Parent Component : <input type="text" #Pcomponent (keyup)="0">
 
-<app-employee></app-employee>
+    <!-- <app-employee [Pdata]="Pcomponent.value"></app-employee> -->
+
+    <p>value of Child Component : {{Cdata}}</p>
+    <!-- <app-employee (childevent)="getdata($event)"></app-employee> -->
+
+    <app-employee (childevent)="Cdata=$event"></app-employee>
+
+</div>
