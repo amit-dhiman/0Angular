@@ -1,13 +1,137 @@
 <div>
     <!-- <h1>Welcome to Sahosoft</h1> -->
-    <h1>Parent aap.commponent.html</h1>
-    Parent Component : <input type="text" #Pcomponent (keyup)="0">
+    <!-- <h1>Parent aap.commponent.html</h1>
+    Parent Component : <input type="text" #Pcomponent (keyup)="0"> -->
 
+<!-- Send Data to Child -->
     <!-- <app-employee [Pdata]="Pcomponent.value"></app-employee> -->
 
-    <p>value of Child Component : {{Cdata}}</p>
+    <!-- <p>value of Child Component : {{Cdata}}</p> -->
     <!-- <app-employee (childevent)="getdata($event)"></app-employee> -->
 
-    <app-employee (childevent)="Cdata=$event"></app-employee>
+<!-- get Data form Child -->
+    <!-- <app-employee (childevent)="Cdata=$event"></app-employee> -->
+
+<!-- Conditions -->
+
+    <!-- <button (click)="login()">Login</button>
+    <button (click)="logout()">LogOut</button>
+
+    @if (isLoggedIn) {
+        <div>User is LoggedIn</div>
+    }@else {
+        <div>User is Logout</div>
+    } -->
+
+    <!-- <input type="radio" name="red" checked (click)="onChange(true)"> Male
+    <input type="radio" name="red" (click)="onChange(false)"> Female<br> -->
+
+    <!-- @if(isValid){
+        <div>Im Male</div>
+    }
+    @if(!isValid){
+        <div>Im Female</div>
+    }
+    @if(num1>num2){
+        <div>num1 is greater than num2</div>
+    }@else if(num1 < num2){
+        <div>num2 is less then </div>
+    }@else {
+        <div>num1 is equal</div>
+    } -->
+
+<!-- Switch statements -->
+    <!-- <p>Enter Your name: </p><input type="text" #txtname (keyup)="0">
+
+    @switch (txtname.value){
+        @case ('Ram') {
+            <b>Hello Ram</b>
+        }
+        @case ('Mohan') {
+            <b>Hello Mohan</b>
+        }
+        @case ('Mohan') {
+            <b>Hello 2nd Mohan</b>
+        }
+        @case ('Sham') {
+            <b>Hello Sham</b>
+        }@default {
+            <b>No data matched</b>
+        }
+    } -->
+
+<!-- For loop , $even $odd, $index -->
+    <!-- @for(emp of employees;track emp.id; let i= $index, e= $even, o= $odd){
+        @if(e){
+            <li style="color: red;"> # {{i}} - {{emp.id}} - {{emp.name}} </li>
+        }        
+        @if(o){
+            <li style="color: blue;"> # {{i}} - {{emp.id}} - {{emp.name}} </li>
+        }
+    }@empty {
+        No data found
+    }
+
+    <table border="1">
+        <tbody>
+            <tr>
+                <th>SR No.</th>
+                <th>Emp id</th>
+                <th>Emp name</th>
+            </tr>
+            @for(emp of employees; track emp.id; let i = $index){
+                <tr>
+                    <td> {{i+1}} </td>
+                    <td> {{emp.id}} </td>
+                    <td> {{emp.name}} </td>
+                </tr>
+            }@empty {
+                <tr>
+                    <td colspan="2"> No data found </td>
+                </tr>
+            }
+        </tbody>
+    </table> -->
+
+
+<!-- directives (Style)-->
+<!-- Style-->
+    <!-- <div style="background-color: aqua;">Hello World</div>
+    <div [ngStyle]="{'background-color': myCountry=='Bharat' ? 'green' : 'red'}">Hello World</div>
+
+
+    @for(emp of employees; track emp.id){
+        <ul>
+            <li [ngStyle]="{'background-color':getColor(emp.country)}" >
+                Name: {{emp.name}} | Country: {{emp.country}} 
+            </li>
+        </ul>
+    }
+    fontsize
+    <div [ngStyle]="{'font-size.px':30}">Hello Sahosoft</div>
+    <div [ngStyle]="{'font-size.px':fontsize}">Hello Sahosoft</div> -->
+
+<!--  ngClass with String  -->
+    <!-- <div class="one">Hello ngClass</div>
+    <div [ngClass]="'one three'">Hello ngClass</div> -->
+
+<!--  ngClass with Array  -->
+    <!-- <div [ngClass]="['one', 'three']">Hello Array</div> -->
+
+<!--  ngClass with Object  -->
+    <!-- <div [ngClass]="{'two':true,three:true}">Hello Object</div>
+    <div [ngClass]="{'two':myCountry=='bharat'}">Hello Object</div>   -->
+
+
+<!-- interpolation binding-->
+
+    <button (click)="changeCity()">Change City</button><br>
+    My City : <b> {{city}} </b><br/><br/>
+
+    Name: {{company?.name}}<br/>
+    City: {{company?.city}}<br/>
+    State: {{company?.state}}<br/>
+    Country: {{company?.country}}<br/>
+
 
 </div>
