@@ -44,6 +44,7 @@ export class AppComponent {
   myCountry = 'bharat';
   city='noida';
   fontsize=60;
+  col=2;
 
   employees: any[] = [
     { id: 1, name: 'Ram1', country: 'india' },
@@ -57,7 +58,7 @@ export class AppComponent {
   company={
     name: "Sahosoft",
     city: "Noida",
-    state: "UP",
+    state: null,
     country: "India",
   }
   // company:any;

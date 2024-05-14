@@ -124,14 +124,32 @@
 
 
 <!-- interpolation binding-->
-
-    <button (click)="changeCity()">Change City</button><br>
+    <!-- <button (click)="changeCity()">Change City</button><br>
     My City : <b> {{city}} </b><br/><br/>
 
     Name: {{company?.name}}<br/>
     City: {{company?.city}}<br/>
-    State: {{company?.state}}<br/>
-    Country: {{company?.country}}<br/>
+    State: {{company?.state ? company.state :"no data"}}<br/>
+    Country: {{company?.country}}<br/> -->
+
+<!--  attribute binding  -->
+    <!-- <table border="1"> 
+        <tbody>
+            <tr>
+                <th [attr.colspan]="col">Employe Detail</th>
+            </tr>
+            <tr>
+                <td>First name</td>
+                <td>ram</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+<!--  property binding  -->
+    <span [innerHTML]="name"></span>
+    <!-- with interpolation -->
+    <span innerHTML="{{name}}"></span>
 
 
 </div>
+<!-- mam 1 card nikalna health kbhi 5 saal pehle jaise hogi ya nhi -->
