@@ -3,6 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
 import { Book } from './book';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { WelcomePipe } from './welcome.pipe';
+import { MessageService } from './message.service';
+import { HttpClientModule } from '@angular/common/http';
+import { Comp1Component } from './comp1/comp1.component';
+import { Comp2Component } from './comp2/comp2.component';
 
 class abc {
   constructor() {
@@ -16,16 +22,22 @@ class abc {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, EmployeeComponent, CommonModule],
+  imports: [RouterOutlet, EmployeeComponent, CommonModule,FormsModule,WelcomePipe,HttpClientModule,Comp1Component,Comp2Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  providers:[MessageService]
   // preserveWhitespaces:true,
   // viewProviders:[abc,Book],
   // encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent {
-  title = 'myangularapp';
+  _msgs:string= ""
+  constructor(private _messageService: MessageService){
+    // this._msgs = _messageService.getmessage()
+  }
+
+  title = 'myangular App';
   //Send data Child to Parent
   // constructor(private _abc: abc, private _book: Book){
   //   console.log('----constructor----');
@@ -38,13 +50,22 @@ export class AppComponent {
   Cdata: any;
   isLoggedIn: boolean = false;
   isValid: boolean = true;
-  num1 = 200;
+  num1 = 2.5;
   num2 = 100;
   name = 'Mohan';
   myCountry = 'bharat';
   city='noida';
   fontsize=60;
   col=2;
+  imgPath='/assets/blue.jpg'
+  currentValue:boolean= true
+  isbold= 'bold'
+  is_bold= true;
+  fontSize=40;
+  classToApply="boldClass";
+  _msg = 'underscore_msg';
+  currentDate= new Date();
+  current_date= new Date(Date.now());
 
   employees: any[] = [
     { id: 1, name: 'Ram1', country: 'india' },
@@ -56,9 +77,9 @@ export class AppComponent {
   ]
 
   company={
-    name: "Sahosoft",
-    city: "Noida",
-    state: null,
+    name: 'Sahosoft',
+    city: 'Noida',
+    state: "UP",
     country: "India",
   }
   // company:any;
@@ -101,6 +122,27 @@ export class AppComponent {
   changeCity(){
     this.city =  'new delhi'
   }
-  
+  enabledisable(){
+    this.currentValue= !this.currentValue;
+  }
+  onchange(val:any){
+    this._msg = val
+    console.log('-----click onchange----',val);
+  }
+  onchange2(){
+    console.log('-----click me2 ----');
+  }
+  keyup(){
+    console.log('-----keyup----');
+  }
+  keydown(){
+    console.log('-----keydown----');
+  }
+  onclick(val:any){
+    this.name=val
+  }
+  get_message(){
+    this._msgs= this._messageService.getmessage()
+  }
 
 }

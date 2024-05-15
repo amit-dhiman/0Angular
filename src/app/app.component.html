@@ -3,16 +3,16 @@
     <!-- <h1>Parent aap.commponent.html</h1>
     Parent Component : <input type="text" #Pcomponent (keyup)="0"> -->
 
-<!-- Send Data to Child -->
+    <!-- Send Data to Child -->
     <!-- <app-employee [Pdata]="Pcomponent.value"></app-employee> -->
 
     <!-- <p>value of Child Component : {{Cdata}}</p> -->
     <!-- <app-employee (childevent)="getdata($event)"></app-employee> -->
 
-<!-- get Data form Child -->
+    <!-- get Data form Child -->
     <!-- <app-employee (childevent)="Cdata=$event"></app-employee> -->
 
-<!-- Conditions -->
+    <!-- Conditions -->
 
     <!-- <button (click)="login()">Login</button>
     <button (click)="logout()">LogOut</button>
@@ -40,7 +40,7 @@
         <div>num1 is equal</div>
     } -->
 
-<!-- Switch statements -->
+    <!-- Switch statements -->
     <!-- <p>Enter Your name: </p><input type="text" #txtname (keyup)="0">
 
     @switch (txtname.value){
@@ -60,7 +60,7 @@
         }
     } -->
 
-<!-- For loop , $even $odd, $index -->
+    <!-- For loop , $even $odd, $index -->
     <!-- @for(emp of employees;track emp.id; let i= $index, e= $even, o= $odd){
         @if(e){
             <li style="color: red;"> # {{i}} - {{emp.id}} - {{emp.name}} </li>
@@ -94,8 +94,8 @@
     </table> -->
 
 
-<!-- directives (Style)-->
-<!-- Style-->
+    <!-- directives (Style)-->
+    <!-- Style-->
     <!-- <div style="background-color: aqua;">Hello World</div>
     <div [ngStyle]="{'background-color': myCountry=='Bharat' ? 'green' : 'red'}">Hello World</div>
 
@@ -111,19 +111,19 @@
     <div [ngStyle]="{'font-size.px':30}">Hello Sahosoft</div>
     <div [ngStyle]="{'font-size.px':fontsize}">Hello Sahosoft</div> -->
 
-<!--  ngClass with String  -->
+    <!--  ngClass with String  -->
     <!-- <div class="one">Hello ngClass</div>
     <div [ngClass]="'one three'">Hello ngClass</div> -->
 
-<!--  ngClass with Array  -->
+    <!--  ngClass with Array  -->
     <!-- <div [ngClass]="['one', 'three']">Hello Array</div> -->
 
-<!--  ngClass with Object  -->
+    <!--  ngClass with Object  -->
     <!-- <div [ngClass]="{'two':true,three:true}">Hello Object</div>
     <div [ngClass]="{'two':myCountry=='bharat'}">Hello Object</div>   -->
 
 
-<!-- interpolation binding-->
+    <!-- interpolation binding-->
     <!-- <button (click)="changeCity()">Change City</button><br>
     My City : <b> {{city}} </b><br/><br/>
 
@@ -132,7 +132,7 @@
     State: {{company?.state ? company.state :"no data"}}<br/>
     Country: {{company?.country}}<br/> -->
 
-<!--  attribute binding  -->
+    <!--  attribute binding  -->
     <!-- <table border="1"> 
         <tbody>
             <tr>
@@ -145,10 +145,104 @@
         </tbody>
     </table> -->
 
-<!--  property binding  -->
-    <span [innerHTML]="name"></span>
-    <!-- with interpolation -->
-    <span innerHTML="{{name}}"></span>
+    <!--  Property binding  & interpolation -->
+    <!-- <p [innerHTML]="name"></p>
+    with interpolation
+    <p innerHTML="{{name}}"></p>
+
+ property binding 
+    <img [src]="imgPath" height="100px" alt="blue"><br>
+
+    with interpolation
+    <img src="{{imgPath}}" height="100px" alt="blue">
+  -->
+
+    <!-- interpolation get fails on, when we work on boolean values -->
+    <!-- <button (click)="enabledisable()">enable/disable</button>
+    <h3> Property binding</h3>
+    <button [disabled]="currentValue">Click me</button>
+
+    <h3>interpolation</h3>
+    <button disabled="{{currentValue}}">Click me</button> -->
+
+    <!-- Style binding -->
+    <!-- <button style="background-color: red;">Click me</button><br>
+    <button style="background-color: red;" [style.font-weight]="isbold">Click me</button>
+    <button style="background-color: red;" [style.font-size.px]="fontSize">Click me</button> -->
+
+    <!-- Class binding -->
+    <!-- <p class="colorClass">Class binding</p>
+    <p class="colorClass" [class]="classToApply">Class binding</p>
+    <p class="colorClass" [class.boldClass]="is_bold">Class binding</p>
+    <p class="colorClass" [class.boldClass]="!is_bold">Class binding</p> -->
+
+    <!--    Event binding   -->
+    <!-- <button (click)="onchange()">On change</button>
+    <button on-click="onchange()">On-change 2</button> <br>
+    <input type="text" (keyup)="keyup()" (keydown)="keydown()">
+    <input type="text" on-keyup="keyup()" on-keydown="keydown()">
+
+    <p>Enter Your name</p> <input type="text" #txtname (keyup)="onclick(txtname.value)">
+    <p>{{name}}</p> -->
+
+
+    <!--    Two way data binding   -->
+    <!-- <input type="text" [value]="_msg" #txtdata (keyup)="onchange(txtdata.value)">
+    <input type="text" [(ngModel)]="_msg">
+    Your msg: <b> {{_msg}} </b>
+     -->
+
+<!--        Pipes       -->
+    <!-- <h3>{{title}}</h3>
+    <h3>{{title | lowercase}}</h3>
+    <h3>{{title | uppercase}}</h3>
+    <h3>{{title | titlecase}}</h3>
+    <h3>{{title | slice:2:10}}</h3>
+    <h3>{{company | json}}</h3> -->
+
+ <!--      Decimal &  Percentage      -->
+    <!-- min 2 integer digits, min 3 fraction digits and max 5 int digits
+    <p>12.123456 | number : '2.3-5'</p> 
+    <p>{{12.123 | number : '3.5-8'}}</p>
+    <p>{{num1 | percent : '3.5-8' }}</p> -->
+
+<!--    Currency  & date pipe   -->
+    <!-- <p> {{num1 | currency}} </p>
+    <p> {{num1 | currency:"USD"}} </p>
+    <p> {{num1 | currency:'INR'}} </p>
+    <p> {{num1 | currency:'GBP'}} </p>
+    <p> {{num1 | currency:'INR':'symbol':'2.3-5' }} </p>    it will show sign
+    <p> {{num1 | currency:'INR':'code':'2.3-5' }} </p>     it will show INR 
+
+    <p>{{currentDate}}</p>
+    <p>{{currentDate | date}}</p>
+    <p>{{currentDate | date:'shortDate'}}</p>
+    <p>{{currentDate | date:'longDate'}}</p>
+    <p>{{currentDate | date:'fullDate'}}</p>
+    <p>{{currentDate | date:'dd-MMM-yyyy'}}</p> -->
+    
+<!-- Custom pipe -->
+    <!-- <p> {{name | welcome}} </p> -->
+
+
+<!--        Service       -->
+    <!-- <button (click)="get_message()">Get message</button>
+Your msgs: <b> {{_msgs}} </b> -->
+
+
+<!--    Singleton Service    &&   Multiton Service-->
+
+    <app-comp1></app-comp1>
+    <app-comp2></app-comp2>
+
+
+
+
+
+
+
+
+
 
 
 </div>
