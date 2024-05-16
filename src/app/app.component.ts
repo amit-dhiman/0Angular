@@ -1,5 +1,5 @@
 import { Component, HostListener, ViewEncapsulation } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
 import { Book } from './book';
 import { CommonModule } from '@angular/common';
@@ -22,7 +22,7 @@ class abc {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, EmployeeComponent, CommonModule,FormsModule,WelcomePipe,HttpClientModule,Comp1Component,Comp2Component],
+  imports: [RouterOutlet,RouterLink,CommonModule,FormsModule,EmployeeComponent,WelcomePipe,HttpClientModule,Comp1Component,Comp2Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers:[MessageService]
