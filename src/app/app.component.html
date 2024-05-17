@@ -235,12 +235,12 @@ Your msgs: <b> {{_msgs}} </b> -->
     <app-comp2></app-comp2> -->
 
     <div>
-        <a routerLink="login" class="mrgn">Login</a>
-        <a routerLink="home" class="mrgn">Home</a>
-        <a routerLink="aboutus" class="mrgn">About Us</a>
-        <a routerLink="contactus" class="mrgn">Contact Us</a>
-        <a routerLink="Student" class="mrgn">Students</a>
-        <!-- <a [routerLink]="[{outlets:{outlet2:['aboutusnew']}}]" class="mrgn">about us New </a>
+        <a routerLink="login" routerLinkActive='active home'>Login</a>
+        <a routerLink="home" [routerLinkActive]='clsstoapply'>Home</a>
+        <a routerLink="aboutus" routerLinkActive='active home'>About Us</a>
+        <a routerLink="contactus" routerLinkActive='active home'>Contact Us</a>
+        <a routerLink="Student" routerLinkActive='active home'>Students</a>
+        <!-- <a [routerLink]="[{outlets:{outlet2:['aboutusnew']}}]" >about us New </a>
         <a [routerLink]="[{outlets:{outlet2:['aboutusnew','501']}}]" class="mrgn">about us New2</a> -->
     </div>
 
