@@ -1,14 +1,16 @@
-import { Component, HostListener, ViewEncapsulation } from '@angular/core';
+import { Component, HostListener, ViewEncapsulation,Inject  } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
 import { Book } from './book';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { WelcomePipe } from './welcome.pipe';
 import { MessageService } from './message.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Comp1Component } from './comp1/comp1.component';
 import { Comp2Component } from './comp2/comp2.component';
+import { TemplateformComponent } from './templateform/templateform.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 
 class abc {
   constructor() {
@@ -22,7 +24,7 @@ class abc {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,RouterLinkActive,CommonModule,FormsModule,EmployeeComponent,WelcomePipe,HttpClientModule,Comp1Component,Comp2Component],
+  imports: [RouterOutlet,RouterLink,RouterLinkActive,CommonModule,FormsModule,EmployeeComponent,WelcomePipe,HttpClientModule,Comp1Component,Comp2Component,TemplateformComponent,ReactiveformComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers:[MessageService]
@@ -33,8 +35,17 @@ class abc {
 
 export class AppComponent {
   _msgs:string= ""
-  constructor(private _messageService: MessageService){
+  constructor(@Inject(DOCUMENT) private document: Document,private _messageService: MessageService){
     // this._msgs = _messageService.getmessage()
+    // if(typeof window !== "undefined" && window.localStorage){
+    //   console.log('----suppported---');
+    // }
+    // const localStorage = document.defaultView?.localStorage;
+    // if (localStorage) {
+    //   localStorage.setItem("userId","ram");
+    //   sessionStorage.setItem("sham","105");
+    // }    
+    
   }
 
   title = 'myangular App';

@@ -1,0 +1,44 @@
+<h2>reactiveform works!</h2>
+
+<div>
+    <form [formGroup]="regForm" (ngSubmit)="register()">
+        <div>
+            First Name: <input type="text" formControlName="fname">
+            <div *ngIf="regForm.controls['fname'].touched && !regForm.controls['fname'].valid">
+                <span *ngIf="regForm.controls['fname'].hasError('required')">
+                    first name is required
+                </span>
+                <span *ngIf="regForm.controls['fname'].hasError('minlength')">
+                    first name should be 4 char
+                </span>
+            </div>
+        </div>
+        <div>
+            Last Name: <input type="text" formControlName="lname">
+            <div *ngIf="regForm.controls['lname'].touched && !regForm.controls['lname'].valid">
+                last name is required
+            </div>
+        </div>
+        <div>
+            Email id: <input type="text" formControlName="email">
+            <div *ngIf="regForm.controls['email'].touched && !regForm.controls['email'].valid">
+                <span *ngIf="regForm.controls['email'].hasError('required')">
+                    email id is required
+                </span>
+                <span *ngIf="regForm.controls['email'].hasError('email')">
+                    email id should be correct
+                </span>
+            </div>
+        </div>
+        <div>
+            Mobile no: <input type="text" formControlName="mobileno">
+        </div>
+        <div>
+            <button type="submit">Register</button>
+            <button type="reset">Cancel</button>
+            <button (click)="reset()">Cancel 2</button>
+
+            <button (click)="filldata()">Fill data</button>
+        </div>
+    </form>
+</div>

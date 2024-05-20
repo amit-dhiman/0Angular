@@ -1,0 +1,21 @@
+<h2>Registration form</h2>
+
+<div>
+    <form #regdata="ngForm" (ngSubmit)="register(regdata)">
+        <div>
+            First name: <input type="text" name="fname" ngModel required #fname="ngModel">
+            <span *ngIf="fname.touched && !fname.valid">First name is required</span>
+        </div>
+        <div>
+            Last name: <input type="text" name="lname" ngModel required #lname="ngModel">
+            <span *ngIf="!lname.valid">Last name is required</span>
+        </div>
+        <div>
+            Eamil Id: <input type="text" name="email" ngModel required #email="ngModel">
+            <span *ngIf="!email.valid">Last name is required</span>
+        </div>
+        <div>
+           <input type="submit" value="Register" [disabled]="regdata.invalid">
+        </div>
+    </form>
+</div>
